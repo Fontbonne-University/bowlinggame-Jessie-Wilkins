@@ -20,6 +20,11 @@ public class BowlingTest {
 		g.roll(5); //spare
 	}
 	
+	private void rollStrike() {
+		g.roll(10);
+		
+	}
+	
 	@Before
 	public void setUp() throws Exception {
 		g = new Game();
@@ -61,14 +66,21 @@ public class BowlingTest {
 
 	@Test
 	public void oneStrike() {
-		g.roll(10);
+		rollStrike();
 		g.roll(3);
 		g.roll(4);
 		rollMany(16, 0);
 		assertEquals(24, g.score());
 	
-	
 	}
+	
+	@Test
+	public void perfectGame() {
+		rollMany(12,10);
+		assertEquals(300, g.score());
+	}
+
+	
 
 	
 }

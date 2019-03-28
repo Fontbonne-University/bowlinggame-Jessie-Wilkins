@@ -14,7 +14,11 @@ public class Game {
 	public int score() {
 		int firstInFrame =0;
 		for(int frame = 0; frame<10; frame++) {
-			if(rolls[firstInFrame]+rolls[firstInFrame+1] == 10) {
+			if(rolls[firstInFrame]==10) {
+				score +=10 +rolls[firstInFrame+1] +rolls[firstInFrame+2];
+				firstInFrame+=1;
+			}
+			else if(rolls[firstInFrame]+rolls[firstInFrame+1] == 10) {
 				score +=10 + rolls[firstInFrame+2];
 				firstInFrame+=2;
 			}
